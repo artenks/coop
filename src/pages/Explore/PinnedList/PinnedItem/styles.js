@@ -14,6 +14,7 @@ export const Image = styled.Image`
 
 export const Title = styled.Text`
   margin-top: 4px;
-  font-size: 12px;
   color: #333;
+  font-weight: bold;
+  font-size: 14px;
 `;

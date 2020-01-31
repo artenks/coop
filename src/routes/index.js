@@ -32,7 +32,7 @@ export default createAppContainer(
           height: 48,
           paddingHorizontal: 8,
           position: 'absolute',
-          width: 264,
+          width: 300,
 
           elevation: 2,
 

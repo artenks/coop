@@ -18,7 +18,9 @@ export const Container = styled.View`
   right: 0px;
 `;
 
-export const Field = styled.TextInput`
+export const Field = styled.TextInput.attrs({
+  returnKeyType: 'search',
+})`
   flex: 1;
 
   color: #666;
