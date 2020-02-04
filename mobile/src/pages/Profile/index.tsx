@@ -3,15 +3,20 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {NavigationBottomTabScreenComponent} from 'react-navigation-tabs';
 
 import Background from '~/components/Background';
+import FlatIconButton from '~/components/FlatIconButton';
 
 import ProfilePicture from './ProfilePicture';
-import {Container} from './styles';
+import {Container, Header} from './styles';
 
 const Profile: NavigationBottomTabScreenComponent = () => {
   return (
     <Background>
       <Container>
-        <ProfilePicture />
+        <Header>
+          <FlatIconButton icon="share" />
+          <ProfilePicture />
+          <FlatIconButton icon="settings" />
+        </Header>
       </Container>
     </Background>
   );
