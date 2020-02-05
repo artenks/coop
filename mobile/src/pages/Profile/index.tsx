@@ -1,5 +1,5 @@
-import React from 'react';
-import {Image} from 'react-native';
+import React, {useState} from 'react';
+import {Animated, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {NavigationBottomTabScreenComponent} from 'react-navigation-tabs';
 
@@ -17,22 +17,25 @@ import youtube from '~/assets/youtube.png';
 import Background from '~/components/Background';
 import FlatIconButton from '~/components/FlatIconButton';
 
-import AddMoreButton from './AddMoreButton';
+import Header from './Header';
 import InputField from './InputField';
-import LogoutButton from './LogoutButton';
 import ProfilePicture from './ProfilePicture';
-import {Container, Header, InformationContainer, Title} from './styles';
+import {Container, InformationContainer, Title} from './styles';
 
 const Profile: NavigationBottomTabScreenComponent = () => {
+  const [scrollOffset] = useState(new Animated.Value(0));
+
   return (
     <Background>
-      <Container>
-        <Header>
-          <FlatIconButton icon="share" />
-          <ProfilePicture />
-          <FlatIconButton icon="settings" />
-        </Header>
-
+      <Container
+        scrollEventThrottle={16}
+        onScroll={Animated.event([
+          {
+            nativeEvent: {
+              contentOffset: {y: scrollOffset},
+            },
+          },
+        ])}>
         <InformationContainer>
           <Title>INFORMAÇÕES PESSOAIS</Title>
 
@@ -88,10 +91,13 @@ const Profile: NavigationBottomTabScreenComponent = () => {
             <Image source={whatsapp} />
           </InputField>
         </InformationContainer>
-
-        <AddMoreButton>Adicionar Informação</AddMoreButton>
-        <LogoutButton>Sair</LogoutButton>
       </Container>
+
+      <Header offset={scrollOffset}>
+        <FlatIconButton icon="share" />
+        <ProfilePicture offset={scrollOffset} />
+        <FlatIconButton icon="settings" />
+      </Header>
     </Background>
   );
 };

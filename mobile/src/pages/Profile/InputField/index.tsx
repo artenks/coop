@@ -19,8 +19,7 @@ const InputField: React.FC<Props> = ({icon, children, ...rest}) => {
         if (icon) {
           return (
             <IconContainer>
-              {/* TODO: change size to 24 */}
-              <Icon name={icon} size={20} color="#666" />
+              <Icon name={icon} size={24} color="#666" />
             </IconContainer>
           );
         }
