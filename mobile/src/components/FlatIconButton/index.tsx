@@ -5,11 +5,12 @@ import {Container} from './styles';
 
 interface Props {
   icon: string;
+  onPress?(): void;
 }
 
-const FlatIconButton: React.FC<Props> = ({icon}) => {
+const FlatIconButton: React.FC<Props> = ({icon, onPress}) => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Icon name={icon} size={24} color="#666" />
     </Container>
   );

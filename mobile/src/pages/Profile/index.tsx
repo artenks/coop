@@ -22,7 +22,7 @@ import InputField from './InputField';
 import ProfilePicture from './ProfilePicture';
 import {Container, InformationContainer, Title} from './styles';
 
-const Profile: NavigationBottomTabScreenComponent = () => {
+const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
   const [scrollOffset] = useState(new Animated.Value(0));
   const scrollRef = useRef<ScrollView>(null);
 
@@ -30,6 +30,10 @@ const Profile: NavigationBottomTabScreenComponent = () => {
     console.log('clicked')
     scrollRef.current?.scrollTo({ y: 0 })
   }, [scrollRef]);
+
+  const handleOpenSettings = useCallback(() => {
+    navigation.navigate('Settings');
+  }, [navigation]);
 
   return (
     <Background>
@@ -103,7 +107,7 @@ const Profile: NavigationBottomTabScreenComponent = () => {
       <Header offset={scrollOffset}>
         <FlatIconButton icon="share" />
         <ProfilePicture offset={scrollOffset} onPress={handleGoToTop} />
-        <FlatIconButton icon="settings" />
+        <FlatIconButton icon="settings" onPress={handleOpenSettings} />
       </Header>
     </Background>
   );

@@ -20,7 +20,7 @@ const CameraButton: React.FC<Props> = ({offset}) => {
     },
   });
 
-  const [scale] = useState(new Animated.Value(1));
+  const [scale] = useState(new Animated.Value(0));
 
   useEffect(() => {
     Animated.spring(scale, {
