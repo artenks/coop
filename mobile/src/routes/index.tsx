@@ -1,6 +1,8 @@
+import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
+import BottomBar from '~/components/BottomBar';
 import Explore from '~/pages/Explore';
 import Friends from '~/pages/Friends';
 import Home from '~/pages/Home';
@@ -19,32 +21,7 @@ export default (colors: Colors) =>
         Profile,
       },
       {
-        tabBarOptions: {
-          activeTintColor: colors.secondary,
-          inactiveTintColor: colors.secondaryLight,
-          keyboardHidesTabBar: false,
-
-          showLabel: false,
-          style: {
-            backgroundColor: colors.primaryLight,
-            borderRadius: 24,
-            borderTopWidth: 0,
-            marginBottom: 16,
-            // marginLeft: 16,
-            alignSelf: 'center',
-            height: 48,
-            paddingHorizontal: 8,
-            position: 'absolute',
-            width: 264,
-
-            elevation: 2,
-
-            shadowColor: colors.primaryDark,
-            shadowOffset: {width: 0, height: 20},
-            shadowOpacity: 0.5,
-            shadowRadius: 20,
-          },
-        },
+        tabBarComponent: props => <BottomBar colors={colors} {...props} />,
       },
     ),
   );
