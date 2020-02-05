@@ -13,4 +13,5 @@ export interface Colors {
 
   primaryText: string;
   secondaryText: string;
+  captionText: string;
 }

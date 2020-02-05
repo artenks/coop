@@ -15,7 +15,8 @@ const Light: DefaultTheme = {
     secondaryDark: '#222',
 
     primaryText: '#333',
-    secondaryText: '#333',
+    secondaryText: '#666',
+    captionText: '#999',
   },
 };
 
