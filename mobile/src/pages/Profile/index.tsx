@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {Animated, Image} from 'react-native';
+import React, {useState, useCallback, useRef} from 'react';
+import {Animated, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {NavigationBottomTabScreenComponent} from 'react-navigation-tabs';
 
@@ -24,11 +24,18 @@ import {Container, InformationContainer, Title} from './styles';
 
 const Profile: NavigationBottomTabScreenComponent = () => {
   const [scrollOffset] = useState(new Animated.Value(0));
+  const scrollRef = useRef<ScrollView>(null);
+
+  const handleGoToTop = useCallback(() => {
+    console.log('clicked')
+    scrollRef.current?.scrollTo({ y: 0 })
+  }, [scrollRef]);
 
   return (
     <Background>
       <Container
-        scrollEventThrottle={16}
+        scrollEventThrottle={24}
+        ref={scrollRef}
         onScroll={Animated.event([
           {
             nativeEvent: {
@@ -95,7 +102,7 @@ const Profile: NavigationBottomTabScreenComponent = () => {
 
       <Header offset={scrollOffset}>
         <FlatIconButton icon="share" />
-        <ProfilePicture offset={scrollOffset} />
+        <ProfilePicture offset={scrollOffset} onPress={handleGoToTop} />
         <FlatIconButton icon="settings" />
       </Header>
     </Background>
