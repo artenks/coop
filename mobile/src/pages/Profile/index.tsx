@@ -23,8 +23,8 @@ import ProfilePicture from './ProfilePicture';
 import {Container, InformationContainer, Title} from './styles';
 
 const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
-  const [scrollOffset] = useState(new Animated.Value(0));
   const scrollRef = useRef<ScrollView>(null);
+  const [scrollOffset] = useState(new Animated.Value(0));
 
   const handleGoToTop = useCallback(() => {
     scrollRef.current?.scrollTo({ y: 0 })
@@ -49,55 +49,53 @@ const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
         <InformationContainer>
           <Title>INFORMAÇÕES PESSOAIS</Title>
 
-          <InputField icon="account-circle" placeholder="Nome" />
+          <InputField icon="account-circle" content="Nome" />
 
-          <InputField placeholder="Usuário">
+          <InputField content="Usuário">
             <Image source={username} />
           </InputField>
 
-          <InputField icon="info" placeholder="Bio" />
-        </InformationContainer>
+          <InputField icon="info" content="Bio" />
 
-        <InformationContainer>
           <Title>OUTRAS INFORMAÇÕES</Title>
 
-          <InputField placeholder="Instagram">
+          <InputField content="Instagram">
             <Image source={instagram} />
           </InputField>
 
-          <InputField placeholder="Facebook">
+          <InputField content="Facebook">
             <Image source={facebook} />
           </InputField>
 
-          <InputField placeholder="Pinterest">
+          <InputField content="Pinterest">
             <Image source={pinterest} />
           </InputField>
 
-          <InputField placeholder="LinkedIn">
+          <InputField content="LinkedIn">
             <Image source={linkedin} />
           </InputField>
 
-          <InputField placeholder="GitHub">
+          <InputField content="GitHub">
             <Image source={github} />
           </InputField>
 
-          <InputField placeholder="Medium">
+          <InputField content="Medium">
             <Image source={medium} />
           </InputField>
 
-          <InputField placeholder="YouTube">
+          <InputField content="YouTube">
             <Image source={youtube} />
           </InputField>
 
-          <InputField placeholder="Twitter">
+          <InputField content="Twitter">
             <Image source={twitter} />
           </InputField>
 
-          <InputField placeholder="Tumblr">
+          <InputField content="Tumblr">
             <Image source={tumblr} />
           </InputField>
 
-          <InputField placeholder="WhatsApp">
+          <InputField content="WhatsApp">
             <Image source={whatsapp} />
           </InputField>
         </InformationContainer>
