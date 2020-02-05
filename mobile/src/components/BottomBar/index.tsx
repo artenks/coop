@@ -33,8 +33,6 @@ const BottomBar: React.FC<Props> = ({colors, ...rest}) => {
   const visible = new Animated.Value(1);
 
   const handleKeyboardShow = useCallback(() => {
-    console.log('show');
-
     Animated.timing(visible, {
       toValue: 0,
       duration: 150,
@@ -42,8 +40,6 @@ const BottomBar: React.FC<Props> = ({colors, ...rest}) => {
   }, [visible]);
 
   const handleKeyboardHide = useCallback(() => {
-    console.log('hide');
-
     Animated.timing(visible, {
       toValue: 1,
       duration: 100,

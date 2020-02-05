@@ -27,7 +27,6 @@ const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
   const scrollRef = useRef<ScrollView>(null);
 
   const handleGoToTop = useCallback(() => {
-    console.log('clicked')
     scrollRef.current?.scrollTo({ y: 0 })
   }, [scrollRef]);
 
