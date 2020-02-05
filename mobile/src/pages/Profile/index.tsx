@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Animated, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {NavigationBottomTabScreenComponent} from 'react-navigation-tabs';

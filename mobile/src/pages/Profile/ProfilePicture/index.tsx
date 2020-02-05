@@ -1,7 +1,7 @@
 import React from 'react';
 import {Animated, StyleSheet} from 'react-native';
 
-// import CameraButton from './CameraButton';
+import CameraButton from './CameraButton';
 import {Container} from './styles';
 
 interface Props {
@@ -41,7 +41,7 @@ const ProfilePicture: React.FC<Props> = ({offset}) => {
         ]}
         source={{uri: 'https://i.imgur.com/wRrbHCy.jpg'}}
       />
-      {/* <CameraButton /> */}
+      <CameraButton offset={offset} />
     </Container>
   );
 };
