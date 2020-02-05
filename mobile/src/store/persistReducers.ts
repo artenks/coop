@@ -6,7 +6,7 @@ export default (reducers: any) => {
     {
       key: 'coop',
       storage: AsyncStorage,
-      whitelist: ['theme'],
+      whitelist: ['settings'],
     },
     reducers,
   );

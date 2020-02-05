@@ -1,7 +1,7 @@
 import {Themes} from '../themes';
 
 export interface RootState {
-  theme: {
+  settings: {
     theme: Themes;
   };
 }

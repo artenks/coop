@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import theme from './theme/reducer';
+import settings from './settings/reducer';
 
 export default combineReducers({
-  theme,
+  settings,
 });

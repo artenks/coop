@@ -24,7 +24,7 @@ const Content: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const theme = useTypedSelector(state => state.theme.theme);
+  const theme = useTypedSelector(state => state.settings.theme);
 
   return (
     <ThemeProvider theme={theme === Themes.light ? light : dark}>

@@ -44,7 +44,7 @@ const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
 
         <Content>
           <Field ref={inputRef}>{text}</Field>
-          <TouchableWithoutFeedback onPress={() => console.log('ospa')}>
+          <TouchableWithoutFeedback onPress={() => {}}>
             <RoundButton>
               <Icon name="save" size={24} color="#fff" />
             </RoundButton>
