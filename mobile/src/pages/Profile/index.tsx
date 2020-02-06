@@ -37,7 +37,7 @@ const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
   return (
     <Background>
       <Container
-        scrollEventThrottle={24}
+        scrollEventThrottle={10}
         ref={scrollRef}
         onScroll={Animated.event([
           {

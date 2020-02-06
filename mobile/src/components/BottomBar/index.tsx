@@ -13,13 +13,14 @@ const BottomBar: React.FC<Props> = ({colors, ...rest}) => {
     bar: {
       backgroundColor: colors.primaryLight,
       borderRadius: 24,
-      borderTopWidth: 0,
+      borderTopWidth: 1,
+      borderTopColor: 'rgba(0, 0, 0, 0.01)',
 
       height: 48,
       paddingHorizontal: 8,
       width: 264,
 
-      elevation: 2,
+      elevation: 4,
 
       shadowColor: colors.primaryDark,
       shadowOffset: {width: 0, height: 20},
