@@ -27,7 +27,7 @@ const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
   const [scrollOffset] = useState(new Animated.Value(0));
 
   const handleGoToTop = useCallback(() => {
-    scrollRef.current?.scrollTo({ y: 0 })
+    scrollRef.current?.scrollTo({y: 0});
   }, [scrollRef]);
 
   const handleOpenSettings = useCallback(() => {

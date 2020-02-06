@@ -53,7 +53,13 @@ const CameraButton: React.FC<Props> = ({offset}) => {
                 extrapolate: 'clamp',
               }),
             },
+            {perspective: 1000},
           ],
+          opacity: scale.interpolate({
+            inputRange: [0, 0.9, 1],
+            outputRange: [1, 1, 0],
+            extrapolate: 'clamp',
+          }),
         },
       ]}>
       <Container>
