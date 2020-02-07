@@ -1,7 +1,10 @@
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 
 import Settings from '~/pages/Settings';
 
@@ -14,7 +17,13 @@ const Routes: React.FC = () => {
     <NavigationContainer>
       <Stack.Navigator headerMode="none">
         <Stack.Screen name="Tabs" component={Tabs} />
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
