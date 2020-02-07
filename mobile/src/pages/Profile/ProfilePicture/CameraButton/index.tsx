@@ -37,7 +37,7 @@ const CameraButton: React.FC<Props> = ({offset}) => {
     Animated.spring(scale, {
       speed: 50,
       toValue: offset.interpolate({
-        inputRange: [0, 1],
+        inputRange: [0, 0.1],
         outputRange: [0, 1],
         extrapolate: 'clamp',
       }),

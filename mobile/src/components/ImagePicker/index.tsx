@@ -55,11 +55,15 @@ const ImagePicker: React.FC<Props> = ({isOpenned, onClose}) => {
   }, [handleClose]);
 
   const handleCameraPicker = useCallback(() => {
-    Picker.launchCamera({}, response => {});
+    Picker.launchCamera({}, response => {
+      console.log(response);
+    });
   }, []);
 
   const handleGalleryPicker = useCallback(() => {
-    Picker.launchImageLibrary({}, response => {});
+    Picker.launchImageLibrary({}, response => {
+      console.log(response);
+    });
   }, []);
 
   useEffect(() => {
