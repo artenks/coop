@@ -6,10 +6,11 @@ import BackButton from '~/components/BackButton';
 import {Wrapper, Title} from './styles';
 
 interface Props {
+  title: string;
   offset: Animated.Value;
 }
 
-const Header: React.FC<Props> = ({offset}) => {
+const Header: React.FC<Props> = ({offset, title}) => {
   const styles = StyleSheet.create({
     header: {
       backgroundColor: '#f0f0f0',
@@ -39,7 +40,7 @@ const Header: React.FC<Props> = ({offset}) => {
     <Animated.View style={[styles.header, {elevation}]}>
       <Wrapper>
         <BackButton />
-        <Title>Configurações</Title>
+        <Title>{title}</Title>
       </Wrapper>
     </Animated.View>
   );

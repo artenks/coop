@@ -1,14 +1,17 @@
 import React, {useState, useRef} from 'react';
-import {Animated, ScrollView, Text} from 'react-native';
+import {Animated, ScrollView} from 'react-native';
 
-import {useScrollToTop} from '@react-navigation/native';
+import {useScrollToTop, useNavigation} from '@react-navigation/native';
 
 import Background from '~/components/Background';
 
+import Category from './Category';
 import Header from './Header';
 import {Container} from './styles';
 
 const Settings: React.FC = () => {
+  const navigation = useNavigation();
+
   const scrollRef = useRef<ScrollView>(null);
   const [scrollOffset] = useState(new Animated.Value(0));
   const [scrollEvents] = useState([
@@ -24,13 +27,23 @@ const Settings: React.FC = () => {
   return (
     <Background>
       <Container
-        scrollEventThrottle={10}
         ref={scrollRef}
+        scrollEventThrottle={10}
         onScroll={Animated.event(scrollEvents)}>
-        <Text style={{height: 1000}}>Opa</Text>
+        <Category
+          icon="brightness-medium"
+          title="Aparência"
+          onPress={() => navigation.navigate('Appearence')}
+          description="Temas, tamanhos e comportamentos"
+        />
+        <Category
+          icon="notifications"
+          title="Notificações"
+          onPress={() => {}}
+        />
       </Container>
 
-      <Header offset={scrollOffset} />
+      <Header title="Configurações" offset={scrollOffset} />
     </Background>
   );
 };

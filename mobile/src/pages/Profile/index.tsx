@@ -40,7 +40,7 @@ const Profile: React.FC = () => {
   return (
     <Background>
       <Container
-        scrollEventThrottle={10}
+        scrollEventThrottle={16}
         ref={scrollRef}
         onScroll={Animated.event([
           {
