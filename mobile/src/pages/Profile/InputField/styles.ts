@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 export const Container = styled(RectButton)`
   flex-direction: row;
   align-items: center;
-  background: #fff;
+  background: ${({theme}) => theme.colors.primaryDark};
   border-radius: 24px;
   height: 48px;
   padding: 0 12px;

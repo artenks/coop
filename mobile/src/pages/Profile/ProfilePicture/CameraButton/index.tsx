@@ -1,6 +1,8 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useContext} from 'react';
 import {Animated, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import {ThemeContext} from 'styled-components';
 
 import ImagePicker from '~/components/ImagePicker';
 
@@ -10,20 +12,22 @@ interface Props {
   offset: Animated.Value;
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: '#f0f0f0',
-    padding: 4,
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    borderRadius: 24,
-  },
-});
-
 const CameraButton: React.FC<Props> = ({offset}) => {
+  const {colors} = useContext(ThemeContext);
+
   const [scale] = useState(new Animated.Value(0));
   const [isOpenned, setOpenned] = useState(false);
+
+  const styles = StyleSheet.create({
+    wrapper: {
+      backgroundColor: colors.primary,
+      padding: 4,
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      borderRadius: 24,
+    },
+  });
 
   const handlePickPhoto = useCallback(() => {
     setOpenned(true);

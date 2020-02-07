@@ -8,6 +8,7 @@ import {
 
 import Settings from '~/pages/Settings';
 import Appearence from '~/pages/Settings/Appearence';
+import Notifications from '~/pages/Settings/Notifications';
 
 import Tabs from './tabs';
 
@@ -31,6 +32,11 @@ const Routes: React.FC = () => {
         <Stack.Screen
           name="Appearence"
           component={Appearence}
+          options={noAnimation}
+        />
+        <Stack.Screen
+          name="Notifications"
+          component={Notifications}
           options={noAnimation}
         />
       </Stack.Navigator>

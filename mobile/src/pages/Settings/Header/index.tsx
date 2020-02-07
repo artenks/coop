@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Animated, StyleSheet} from 'react-native';
+
+import {ThemeContext} from 'styled-components';
 
 import BackButton from '~/components/BackButton';
 
@@ -11,9 +13,11 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({offset, title}) => {
+  const {colors} = useContext(ThemeContext);
+
   const styles = StyleSheet.create({
     header: {
-      backgroundColor: '#f0f0f0',
+      backgroundColor: colors.primary,
       flexDirection: 'row',
       justifyContent: 'space-between',
       position: 'absolute',

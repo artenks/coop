@@ -6,9 +6,9 @@ const Dark: DefaultTheme = {
   colors: {
     barStyle: 'light-content',
 
-    primary: '#333',
-    primaryLight: '#222',
-    primaryDark: '#444',
+    primary: '#222',
+    primaryLight: '#111',
+    primaryDark: '#333',
 
     secondary: '#333',
     secondaryLight: '#666',
@@ -16,6 +16,7 @@ const Dark: DefaultTheme = {
 
     primaryText: '#FFF',
     secondaryText: '#F5F5F5',
+    captionText: '#ccc',
   },
 };
 

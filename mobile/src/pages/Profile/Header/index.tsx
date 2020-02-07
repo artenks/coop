@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Animated, StyleSheet} from 'react-native';
+
+import {ThemeContext} from 'styled-components';
 
 interface Props {
   offset: Animated.Value;
 }
 
 const Header: React.FC<Props> = ({offset, ...rest}) => {
+  const {colors} = useContext(ThemeContext);
+
   const styles = StyleSheet.create({
     header: {
-      backgroundColor: '#f0f0f0',
+      backgroundColor: colors.primary,
       flexDirection: 'row',
       justifyContent: 'space-between',
       position: 'absolute',

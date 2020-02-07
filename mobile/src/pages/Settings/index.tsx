@@ -31,7 +31,9 @@ const Settings: React.FC = () => {
         scrollEventThrottle={10}
         onScroll={Animated.event(scrollEvents)}>
         <Category
-          icon="brightness-medium"
+          icon="palette"
+          // icon="format-paint"
+          // icon="brightness-medium"
           title="Aparência"
           onPress={() => navigation.navigate('Appearence')}
           description="Temas, tamanhos e comportamentos"
@@ -39,7 +41,7 @@ const Settings: React.FC = () => {
         <Category
           icon="notifications"
           title="Notificações"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('Notifications')}
         />
       </Container>
 
