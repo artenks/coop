@@ -1,7 +1,6 @@
 import React, {useState, useCallback, useRef} from 'react';
 import {Animated, Image, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {NavigationBottomTabScreenComponent} from 'react-navigation-tabs';
+import {useNavigation, useScrollToTop} from '@react-navigation/native';
 
 import facebook from '~/assets/facebook.png';
 import github from '~/assets/github.png';
@@ -22,7 +21,9 @@ import InputField from './InputField';
 import ProfilePicture from './ProfilePicture';
 import {Container, InformationContainer, Title} from './styles';
 
-const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
+const Profile: React.FC = () => {
+  const navigation = useNavigation();
+
   const scrollRef = useRef<ScrollView>(null);
   const [scrollOffset] = useState(new Animated.Value(0));
 
@@ -33,6 +34,8 @@ const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
   const handleOpenSettings = useCallback(() => {
     navigation.navigate('Settings');
   }, [navigation]);
+
+  useScrollToTop(scrollRef);
 
   return (
     <Background>
@@ -108,12 +111,6 @@ const Profile: NavigationBottomTabScreenComponent = ({navigation}) => {
       </Header>
     </Background>
   );
-};
-
-Profile.navigationOptions = {
-  tabBarIcon: ({tintColor}) => (
-    <Icon name="person" color={tintColor} size={24} />
-  ),
 };
 
 export default Profile;

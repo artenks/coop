@@ -25,8 +25,8 @@ const Header: React.FC<Props> = ({offset, ...rest}) => {
         styles.header,
         {
           elevation: offset.interpolate({
-            inputRange: [150, 155],
-            outputRange: [0, 8],
+            inputRange: [150, 151],
+            outputRange: [0, 16],
             extrapolate: 'clamp',
           }),
         },

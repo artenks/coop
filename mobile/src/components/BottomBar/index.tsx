@@ -1,14 +1,12 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback, useContext} from 'react';
 import {Animated, Keyboard, Platform, StyleSheet} from 'react-native';
-import {BottomTabBar, BottomTabBarProps} from 'react-navigation-tabs';
 
-import {Colors} from '~/themes/colors';
+import {BottomTabBar, BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import {ThemeContext} from 'styled-components/native';
 
-interface Props extends BottomTabBarProps {
-  colors: Colors;
-}
+const BottomBar: React.FC<BottomTabBarProps> = props => {
+  const {colors} = useContext(ThemeContext);
 
-const BottomBar: React.FC<Props> = ({colors, ...rest}) => {
   const styles = StyleSheet.create({
     bar: {
       backgroundColor: colors.primaryLight,
@@ -83,7 +81,7 @@ const BottomBar: React.FC<Props> = ({colors, ...rest}) => {
         },
       ]}>
       <BottomTabBar
-        {...rest}
+        {...props}
         showLabel={false}
         activeTintColor={colors.secondary}
         inactiveTintColor={colors.secondaryLight}

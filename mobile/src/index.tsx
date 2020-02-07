@@ -3,7 +3,7 @@ import {StatusBar} from 'react-native';
 
 import {ThemeProvider, ThemeContext} from 'styled-components/native';
 
-import createRouter from '~/routes';
+import Routes from '~/routes';
 
 import {useTypedSelector} from './store';
 import {Themes} from './themes';
@@ -12,8 +12,6 @@ import light from './themes/light';
 
 const Content: React.FC = () => {
   const {colors} = useContext(ThemeContext);
-
-  const Routes = createRouter(colors);
 
   return (
     <>
