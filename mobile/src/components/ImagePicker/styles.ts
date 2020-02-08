@@ -3,7 +3,6 @@ import {RectButton} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`
-  background: #fff;
   padding: 24px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -25,7 +24,7 @@ export const RoundButton = styled(RectButton)`
   align-items: center;
   justify-content: center;
 
-  background: #fff;
+  background: ${({theme}) => theme.colors.primary};
   border-radius: 48px;
   height: 96px;
   width: 96px;

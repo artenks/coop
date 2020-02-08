@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {Alert, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {Alert, TouchableWithoutFeedback} from 'react-native';
 import Picker from 'react-native-image-picker';
-import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import BottomSheet from '~/components/BottomSheet';
 import {
   checkCameraPermission,
   requestCameraPermission,
@@ -25,14 +25,6 @@ interface Props {
   isOpenned: boolean;
   onClose(): void;
 }
-
-const styles = StyleSheet.create({
-  modal: {
-    justifyContent: 'flex-end',
-    margin: 0,
-    elevation: 16,
-  },
-});
 
 const ImagePicker: React.FC<Props> = ({isOpenned, onClose}) => {
   const [isVisible, setVisible] = useState(false);
@@ -90,14 +82,7 @@ const ImagePicker: React.FC<Props> = ({isOpenned, onClose}) => {
   }, [handleClose, isOpenned, handleRequestPermissions]);
 
   return (
-    <Modal
-      isVisible={isVisible}
-      onBackButtonPress={handleClose}
-      onSwipeComplete={handleClose}
-      swipeDirection={['down']}
-      onBackdropPress={handleClose}
-      backdropColor="rgba(0, 0, 0, 0.6)"
-      style={styles.modal}>
+    <BottomSheet isVisible={isVisible} onClose={handleClose}>
       <Wrapper>
         <Title>Selecionar a fonte</Title>
         <Row>
@@ -124,7 +109,7 @@ const ImagePicker: React.FC<Props> = ({isOpenned, onClose}) => {
           <EmptyContainer />
         </Row>
       </Wrapper>
-    </Modal>
+    </BottomSheet>
   );
 };
 

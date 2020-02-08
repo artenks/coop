@@ -7,6 +7,7 @@ import {Container} from './styles';
 export interface BottomSheetProps {
   isVisible: boolean;
   onClose(): void;
+  onShow?(): void;
 }
 
 const styles = StyleSheet.create({
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
 const BottomSheet: React.FC<BottomSheetProps> = ({
   isVisible,
   onClose,
+  onShow,
   children,
 }) => {
   return (
@@ -26,6 +28,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
       isVisible={isVisible}
       onBackButtonPress={onClose}
       onSwipeComplete={onClose}
+      onShow={onShow}
       swipeDirection={['down']}
       onBackdropPress={onClose}
       backdropColor="rgba(0, 0, 0, 0.6)"

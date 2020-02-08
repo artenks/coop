@@ -15,7 +15,6 @@ export const Title = styled.Text`
 export const Wrapper = styled.View`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background: #fff;
   padding: 16px;
 `;
 

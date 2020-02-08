@@ -1,7 +1,8 @@
 import React, {useRef, useCallback} from 'react';
-import {TextInput, StyleSheet, TouchableWithoutFeedback} from 'react-native';
-import Modal from 'react-native-modal';
+import {TextInput, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import BottomSheet from '~/components/BottomSheet';
 
 import {Wrapper, Header, Title, Field, Content, RoundButton} from './styles';
 
@@ -10,14 +11,6 @@ interface Props {
   isVisible: boolean;
   onClose(): void;
 }
-
-const styles = StyleSheet.create({
-  modal: {
-    justifyContent: 'flex-end',
-    margin: 0,
-    elevation: 16,
-  },
-});
 
 const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
   const inputRef = useRef<TextInput>(null);
@@ -29,15 +22,7 @@ const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
   }, [inputRef]);
 
   return (
-    <Modal
-      onSwipeComplete={onClose}
-      swipeDirection={['down']}
-      isVisible={isVisible}
-      onShow={handleOnShow}
-      onBackdropPress={onClose}
-      backdropColor="rgba(0, 0, 0, 0.6)"
-      onBackButtonPress={onClose}
-      style={styles.modal}>
+    <BottomSheet onClose={onClose} isVisible={isVisible} onShow={handleOnShow}>
       <Wrapper>
         <Header>
           {children}
@@ -53,7 +38,7 @@ const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
           </TouchableWithoutFeedback>
         </Content>
       </Wrapper>
-    </Modal>
+    </BottomSheet>
   );
 };
 
