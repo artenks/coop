@@ -8,7 +8,7 @@ const Light: DefaultTheme = {
 
     primary: '#F0F0F0',
     primaryLight: '#FFF',
-    primaryDark: '#EEE',
+    primaryDark: '#fff',
 
     secondary: '#333',
     secondaryLight: '#999',

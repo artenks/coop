@@ -1,9 +1,5 @@
-import React, {useRef} from 'react';
-import {
-  TextInput,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import React, {useRef, useCallback} from 'react';
+import {TextInput, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -26,12 +22,18 @@ const styles = StyleSheet.create({
 const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
   const inputRef = useRef<TextInput>(null);
 
+  const handleOnShow = useCallback(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [inputRef]);
+
   return (
     <Modal
       onSwipeComplete={onClose}
       swipeDirection={['down']}
       isVisible={isVisible}
-      onShow={() => inputRef.current?.focus()}
+      onShow={handleOnShow}
       onBackdropPress={onClose}
       backdropColor="rgba(0, 0, 0, 0.6)"
       onBackButtonPress={onClose}

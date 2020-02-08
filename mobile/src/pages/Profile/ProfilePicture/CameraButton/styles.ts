@@ -8,5 +8,5 @@ export const Container = styled(RectButton).attrs({
   padding: 8px;
   border-radius: 18px;
 
-  background: ${({theme}) => theme.colors.primaryDark};
+  background: ${({theme}) => theme.colors.secondary};
 `;

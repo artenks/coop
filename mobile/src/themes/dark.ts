@@ -7,12 +7,12 @@ const Dark: DefaultTheme = {
     barStyle: 'light-content',
 
     primary: '#222',
-    primaryLight: '#111',
+    primaryLight: '#333',
     primaryDark: '#333',
 
-    secondary: '#333',
-    secondaryLight: '#666',
-    secondaryDark: '#666',
+    secondary: '#666',
+    secondaryLight: '#222',
+    secondaryDark: '#222',
 
     primaryText: '#FFF',
     secondaryText: '#F5F5F5',
