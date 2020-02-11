@@ -1,18 +1,28 @@
-import React, {useRef, useCallback} from 'react';
-import {TextInput, TouchableWithoutFeedback} from 'react-native';
+import React, {useRef, useCallback, useState} from 'react';
+import {TextInput, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import BottomSheet from '~/components/BottomSheet';
+import Title from '~/components/BottomSheet/Title';
 
-import {Wrapper, Header, Title, Field, Content, RoundButton} from './styles';
+import {Wrapper, Field, Content, RoundButton} from './styles';
 
 interface Props {
+  title: string;
   text: string;
   isVisible: boolean;
   onClose(): void;
+  onSubmit(value: string): boolean;
 }
 
-const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
+const EditDialog: React.FC<Props> = ({
+  isVisible,
+  title,
+  text,
+  onClose,
+  onSubmit,
+}) => {
+  const [value, setValue] = useState(text || '');
   const inputRef = useRef<TextInput>(null);
 
   const handleOnShow = useCallback(() => {
@@ -21,17 +31,26 @@ const EditDialog: React.FC<Props> = ({isVisible, text, onClose, children}) => {
     }
   }, [inputRef]);
 
+  const handleSubmit = useCallback(() => {
+    if (onSubmit(value)) {
+      Keyboard.dismiss();
+    }
+  }, [onSubmit, value]);
+
   return (
     <BottomSheet onClose={onClose} isVisible={isVisible} onShow={handleOnShow}>
       <Wrapper>
-        <Header>
-          {children}
-          <Title>{text}</Title>
-        </Header>
+        <Title>{title}</Title>
 
         <Content>
-          <Field ref={inputRef}>{text}</Field>
-          <TouchableWithoutFeedback onPress={() => {}}>
+          <Field
+            returnKeyType="done"
+            value={value}
+            onChangeText={setValue}
+            ref={inputRef}>
+            {text}
+          </Field>
+          <TouchableWithoutFeedback onPress={handleSubmit}>
             <RoundButton>
               <Icon name="save" size={24} color="#fff" />
             </RoundButton>

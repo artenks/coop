@@ -4,6 +4,7 @@ import Picker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import BottomSheet from '~/components/BottomSheet';
+import Title from '~/components/BottomSheet/Title';
 import {
   checkCameraPermission,
   requestCameraPermission,
@@ -13,7 +14,6 @@ import {
 
 import {
   Wrapper,
-  Title,
   Row,
   RoundButton,
   IconContainer,

@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   theme: Themes.light,
 };
 
-function switchTheme(state = INITIAL_STATE, action: Action) {
+function theme(state = INITIAL_STATE, action: Action) {
   return produce(state, draft => {
     switch (action.type) {
       case Types.switchTheme:
@@ -24,4 +24,4 @@ function switchTheme(state = INITIAL_STATE, action: Action) {
   });
 }
 
-export default switchTheme;
+export default theme;

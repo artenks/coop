@@ -27,6 +27,7 @@ import youtubeDark from '~/assets/profile/youtube-dark-24.png';
 import youtubeLight from '~/assets/profile/youtube-light-24.png';
 import Background from '~/components/Background';
 import FlatIconButton from '~/components/FlatIconButton';
+import {useTypedSelector} from '~/store';
 
 import AddInfoButton from './AddInfoButton';
 import Header from './Header';
@@ -36,6 +37,8 @@ import {Container, InformationContainer, Title} from './styles';
 
 const Profile: React.FC = () => {
   const navigation = useNavigation();
+
+  const {name, username, bio} = useTypedSelector(state => state.profile);
 
   const scrollRef = useRef<ScrollView>(null);
   const [scrollOffset] = useState(new Animated.Value(0));
@@ -55,6 +58,7 @@ const Profile: React.FC = () => {
   return (
     <Background>
       <Container
+        keyboardShouldPersistTaps="handled"
         scrollEventThrottle={16}
         ref={scrollRef}
         onScroll={Animated.event([
@@ -67,14 +71,26 @@ const Profile: React.FC = () => {
         <InformationContainer>
           <Title>INFORMAÇÕES PESSOAIS</Title>
 
-          <InputField icon={{name: 'account-circle'}} content="Nome" />
+          <InputField
+            icon={{name: 'account-circle'}}
+            content={name}
+            placeholder={'Nome'}
+            isValidValue={value => value.length > 3}
+          />
 
           <InputField
             icon={{source: {dark: usernameDark, light: usernameLight}}}
-            content="Usuário"
+            content={username}
+            placeholder={'Usuário'}
+            isValidValue={value => value.length > 3}
           />
 
-          <InputField icon={{name: 'info'}} content="Bio" />
+          <InputField
+            icon={{name: 'info'}}
+            content={bio}
+            placeholder={'Bio'}
+            isValidValue={value => value.length > 3}
+          />
 
           <Title>OUTRAS INFORMAÇÕES</Title>
 
@@ -86,6 +102,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="Instagram"
+            placeholder="Instagram"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -96,6 +114,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="Facebook"
+            placeholder="Facebook"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -106,6 +126,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="Pinterest"
+            placeholder="Pinterest"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -116,6 +138,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="LinkedIn"
+            placeholder="LinkedIn"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -126,6 +150,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="GitHub"
+            placeholder="GitHub"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -136,6 +162,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="Medium"
+            placeholder="Medium"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -146,6 +174,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="YouTube"
+            placeholder="YouTube"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -156,6 +186,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="Twitter"
+            placeholder="Twitter"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -166,6 +198,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="Tumblr"
+            placeholder="Tumblr"
+            isValidValue={value => value.length > 3}
           />
 
           <InputField
@@ -176,6 +210,8 @@ const Profile: React.FC = () => {
               },
             }}
             content="WhatsApp"
+            placeholder="WhatsApp"
+            isValidValue={value => value.length > 3}
           />
 
           <AddInfoButton />

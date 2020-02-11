@@ -2,20 +2,10 @@ import {RectButton} from 'react-native-gesture-handler';
 
 import styled from 'styled-components/native';
 
-export const Header = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-
-export const Title = styled.Text`
-  font-size: 16px;
-`;
-
 export const Wrapper = styled.View`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  padding: 16px;
+  padding: 24px 16px;
 `;
 
 export const Content = styled.View`
@@ -25,6 +15,7 @@ export const Content = styled.View`
 
 export const Field = styled.TextInput.attrs({
   selectTextOnFocus: true,
+  selectionColor: 'rgba(0, 0, 0, 0.15)',
 })`
   background: rgba(0, 0, 0, 0.05);
   border-radius: 24px;
@@ -32,6 +23,7 @@ export const Field = styled.TextInput.attrs({
   padding: 0 16px;
   font-size: 14px;
   flex: 1;
+  color: #666;
 `;
 
 export const RoundButton = styled(RectButton).attrs({
@@ -39,6 +31,8 @@ export const RoundButton = styled(RectButton).attrs({
 })`
   align-items: center;
   justify-content: center;
+
+  align-self: center;
 
   background: ${({theme}) => theme.colors.secondary};
   border-radius: 24px;

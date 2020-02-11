@@ -5,5 +5,4 @@ export const Container = styled.View`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding-top: 8px;
-  max-height: 500px;
 `;

@@ -3,16 +3,7 @@ import {RectButton} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`
-  padding: 24px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-`;
-
-export const Title = styled.Text`
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 16px;
-  align-self: center;
+  padding: 24px 16px;
 `;
 
 export const Row = styled.View`
