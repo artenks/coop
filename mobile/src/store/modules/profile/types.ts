@@ -2,19 +2,25 @@ export interface Profile {
   name?: string;
   username?: string;
   bio?: string;
-  social?: {
-    instagram?: string;
-    facebook?: string;
-    pinterest?: string;
-    linkedin?: string;
-    github?: string;
-    medium?: string;
-    youtube?: string;
-    twitter?: string;
-    tumblr?: string;
-    whatsapp?: string;
-  };
+  informations: Information[];
 }
+
+interface Information {
+  name: AdditionalInfo;
+  value: string;
+}
+
+export type AdditionalInfo =
+  | 'instagram'
+  | 'facebook'
+  | 'pinterest'
+  | 'linkedin'
+  | 'github'
+  | 'medium'
+  | 'youtube'
+  | 'twitter'
+  | 'tumblr'
+  | 'whatsapp';
 
 export enum Types {
   'updateName' = 'UPDATE_NAME',
