@@ -2,7 +2,9 @@ import produce from 'immer';
 
 import {Action, Profile, Types} from './types';
 
-const INITIAL_STATE: Profile = {};
+const INITIAL_STATE: Profile = {
+  social: {},
+};
 
 function profile(state = INITIAL_STATE, action: Action) {
   return produce(state, draft => {

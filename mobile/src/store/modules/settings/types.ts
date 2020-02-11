@@ -1,8 +1,8 @@
 import {Themes} from '../../../themes';
 
 export enum Types {
-  'switchTheme',
-  'restoreDefault',
+  'switchTheme' = 'SWITCH_THEME',
+  'restoreDefault' = 'RESTORE_DEFAULT',
 }
 
 export interface Action {

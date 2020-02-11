@@ -4,7 +4,7 @@ export function updateName(name: string): Action {
   return {
     type: Types.updateName,
     payload: {
-      bio: name,
+      name,
     },
   };
 }
