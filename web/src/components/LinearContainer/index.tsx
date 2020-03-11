@@ -10,7 +10,7 @@ interface Props {
   childCount: number;
 }
 
-const VerticalContainer: React.FC<Props> = ({ childCount }) => {
+const LinearContainer: React.FC<Props> = ({ childCount }) => {
   const [items, setItems] = useState<string[]>([]);
 
   useEffect(() => {
@@ -36,6 +36,6 @@ const VerticalContainer: React.FC<Props> = ({ childCount }) => {
   );
 };
 
-export default VerticalContainer;
+export default LinearContainer;
 
-export { default as VerticalContainerPreview } from './Preview';
+export { default as LinearContainerPreview } from './Preview';

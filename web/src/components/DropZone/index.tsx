@@ -7,13 +7,13 @@ import { Container } from './styles';
 
 interface Props {
   accept: string[];
-  onDrop(item: Item<{}>): void;
+  onDrop(item: Item): void;
 }
 
-const DropZone: React.FC<Props> = ({ accept, onDrop }) => {
+const DropZone: React.FC<Props> = ({ accept, onDrop, ...rest }) => {
   const [{ isHover }, drop] = useDrop({
     accept,
-    drop(item: Item<{}>) {
+    drop(item: Item) {
       onDrop(item);
     },
     collect(monitor) {
@@ -23,11 +23,7 @@ const DropZone: React.FC<Props> = ({ accept, onDrop }) => {
     },
   });
 
-  return (
-    <>
-      <Container ref={drop} isHover={isHover} />
-    </>
-  );
+  return <Container ref={drop} isHover={isHover} {...rest} />;
 };
 
 export default DropZone;

@@ -1,41 +1,29 @@
 import React, {useState, useCallback, useRef} from 'react';
 import {Animated, ScrollView} from 'react-native';
+import {useDispatch} from 'react-redux';
 
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
 
-import facebookDark from '~/assets/profile/facebook-dark-24.png';
-import facebookLight from '~/assets/profile/facebook-light-24.png';
-import githubDark from '~/assets/profile/github-dark-24.png';
-import githubLight from '~/assets/profile/github-light-24.png';
-import instagramDark from '~/assets/profile/instagram-dark-24.png';
-import instagramLight from '~/assets/profile/instagram-light-24.png';
-import linkedinDark from '~/assets/profile/linkedin-dark-24.png';
-import linkedinLight from '~/assets/profile/linkedin-light-24.png';
-import mediumDark from '~/assets/profile/medium-dark-24.png';
-import mediumLight from '~/assets/profile/medium-light-24.png';
-import pinterestDark from '~/assets/profile/pinterest-dark-24.png';
-import pinterestLight from '~/assets/profile/pinterest-light-24.png';
-import tumblrDark from '~/assets/profile/tumblr-dark-24.png';
-import tumblrLight from '~/assets/profile/tumblr-light-24.png';
-import twitterDark from '~/assets/profile/twitter-dark-24.png';
-import twitterLight from '~/assets/profile/twitter-light-24.png';
 import usernameDark from '~/assets/profile/username-dark-24.png';
 import usernameLight from '~/assets/profile/username-light-24.png';
-import whatsappDark from '~/assets/profile/whatsapp-dark-24.png';
-import whatsappLight from '~/assets/profile/whatsapp-light-24.png';
-import youtubeDark from '~/assets/profile/youtube-dark-24.png';
-import youtubeLight from '~/assets/profile/youtube-light-24.png';
 import Background from '~/components/Background';
 import FlatIconButton from '~/components/FlatIconButton';
 import {useTypedSelector} from '~/store';
+import {
+  updateName,
+  updateUsername,
+  updateBio,
+} from '~/store/modules/profile/actions';
 
 import AddInfoButton from './AddInfoButton';
 import Header from './Header';
 import InputField from './InputField';
 import ProfilePicture from './ProfilePicture';
+import SocialList from './SocialList';
 import {Container, InformationContainer, Title} from './styles';
 
 const Profile: React.FC = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const {name, username, bio} = useTypedSelector(state => state.profile);
@@ -72,147 +60,38 @@ const Profile: React.FC = () => {
           <Title>INFORMAÇÕES PESSOAIS</Title>
 
           <InputField
-            icon={{name: 'account-circle'}}
-            content={name}
-            placeholder={'Nome'}
-            isValidValue={value => value.length > 3}
+            onSave={value => dispatch(updateName(value))}
+            options={{
+              icon: {name: 'account-circle'},
+              content: name || '',
+              placeholder: 'Nome',
+              isValidValue: value => value.length > 3,
+            }}
           />
 
           <InputField
-            icon={{source: {dark: usernameDark, light: usernameLight}}}
-            content={username}
-            placeholder={'Usuário'}
-            isValidValue={value => value.length > 3}
+            onSave={value => dispatch(updateUsername(value))}
+            options={{
+              icon: {source: {dark: usernameDark, light: usernameLight}},
+              content: username || '',
+              placeholder: 'Usuário',
+              isValidValue: value => value.length > 3,
+            }}
           />
 
           <InputField
-            icon={{name: 'info'}}
-            content={bio}
-            placeholder={'Bio'}
-            isValidValue={value => value.length > 3}
+            onSave={value => dispatch(updateBio(value))}
+            options={{
+              icon: {name: 'info'},
+              content: bio || '',
+              placeholder: 'Bio',
+              isValidValue: value => value.length > 3,
+            }}
           />
 
           <Title>OUTRAS INFORMAÇÕES</Title>
 
-          <InputField
-            icon={{
-              source: {
-                dark: instagramDark,
-                light: instagramLight,
-              },
-            }}
-            content="Instagram"
-            placeholder="Instagram"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: facebookDark,
-                light: facebookLight,
-              },
-            }}
-            content="Facebook"
-            placeholder="Facebook"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: pinterestDark,
-                light: pinterestLight,
-              },
-            }}
-            content="Pinterest"
-            placeholder="Pinterest"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: linkedinDark,
-                light: linkedinLight,
-              },
-            }}
-            content="LinkedIn"
-            placeholder="LinkedIn"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: githubDark,
-                light: githubLight,
-              },
-            }}
-            content="GitHub"
-            placeholder="GitHub"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: mediumDark,
-                light: mediumLight,
-              },
-            }}
-            content="Medium"
-            placeholder="Medium"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: youtubeDark,
-                light: youtubeLight,
-              },
-            }}
-            content="YouTube"
-            placeholder="YouTube"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: twitterDark,
-                light: twitterLight,
-              },
-            }}
-            content="Twitter"
-            placeholder="Twitter"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: tumblrDark,
-                light: tumblrLight,
-              },
-            }}
-            content="Tumblr"
-            placeholder="Tumblr"
-            isValidValue={value => value.length > 3}
-          />
-
-          <InputField
-            icon={{
-              source: {
-                dark: whatsappDark,
-                light: whatsappLight,
-              },
-            }}
-            content="WhatsApp"
-            placeholder="WhatsApp"
-            isValidValue={value => value.length > 3}
-          />
+          <SocialList />
 
           <AddInfoButton />
         </InformationContainer>

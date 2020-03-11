@@ -1,7 +1,7 @@
 import { ItemTypes } from './item-types';
 
-export default interface Item<T> {
+export default interface Item {
   name: string;
   type: ItemTypes;
-  props: T;
+  props: object;
 }

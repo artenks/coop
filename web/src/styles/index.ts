@@ -2,22 +2,18 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-`;
 
-export const Container = styled.div`
-  position: relative;
-`;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  max-width: 980px;
+  padding: 48px;
 
-export const DropZoneContainer = styled.div`
-  position: absolute;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 
-  bottom: 49px;
-  left: 39px;
-  right: 38px;
-  top: 49px;
-
-  display: flex;
-  flex-direction: column;
+  & > * + * {
+    margin-left: 32px;
+    flex: 1;
+  }
 `;

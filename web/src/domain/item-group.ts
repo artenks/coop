@@ -1,5 +1,5 @@
 import Item from './item';
 
-export default interface ItemGroup<T> extends Item<T> {
-  children: Item<T>[];
+export default interface ItemGroup extends Item {
+  children: Item[];
 }

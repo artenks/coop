@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface Props {
   isHover: boolean;
@@ -6,5 +6,9 @@ interface Props {
 
 export const Container = styled.div<Props>`
   flex: 1;
-  background: ${props => (props.isHover ? '#ddd' : 'none')};
+  ${props =>
+    props.isHover &&
+    css`
+      border: 1px dashed #999;
+    `}
 `;

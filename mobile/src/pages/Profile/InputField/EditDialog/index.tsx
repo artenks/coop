@@ -22,7 +22,7 @@ const EditDialog: React.FC<Props> = ({
   onClose,
   onSubmit,
 }) => {
-  const [value, setValue] = useState(text || '');
+  const [value, setValue] = useState(text);
   const inputRef = useRef<TextInput>(null);
 
   const handleOnShow = useCallback(() => {
@@ -47,9 +47,8 @@ const EditDialog: React.FC<Props> = ({
             returnKeyType="done"
             value={value}
             onChangeText={setValue}
-            ref={inputRef}>
-            {text}
-          </Field>
+            ref={inputRef}
+          />
           <TouchableWithoutFeedback onPress={handleSubmit}>
             <RoundButton>
               <Icon name="save" size={24} color="#fff" />
