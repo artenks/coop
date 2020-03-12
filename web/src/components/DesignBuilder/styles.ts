@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   align-self: center;
+  background: #fff;
+  border-radius: 44px;
 `;
 
 export const DropZoneContainer = styled.div`
@@ -13,7 +15,7 @@ export const DropZoneContainer = styled.div`
   bottom: 15px;
   left: 15px;
   right: 15px;
-  top: 40px;
+  top: 39px;
 
   display: flex;
   flex-direction: column;

@@ -2,8 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
 
-  height: 100px;
-  background: #999;
+  flex: 1;
+  padding: 40px 64px;
+
+  & > * + * {
+    margin-left: 64px;
+  }
 `;

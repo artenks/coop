@@ -1,7 +1,10 @@
+import { ReactNode } from 'react';
+
 import { ItemTypes } from './item-types';
 
 export default interface Item {
   name: string;
   type: ItemTypes;
-  props: object;
+  icon?: ReactNode;
+  props?: object;
 }

@@ -1,8 +1,11 @@
+import Scrollbar from 'react-perfect-scrollbar';
+
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled(Scrollbar)`
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   strong {
     font-size: 12px;
@@ -11,6 +14,6 @@ export const Container = styled.div`
   }
 
   & > * + * {
-    flex: 1;
+    margin-top: 8px;
   }
 `;

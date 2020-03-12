@@ -2,34 +2,27 @@ import React, { useState, useCallback } from 'react';
 
 import Item from 'domain/item';
 import { ItemTypes } from 'domain/item-types';
+import { useResolveComponent } from 'util/resolve-component';
 
 import Mockup from './Mockup';
 import { Container, DropZoneContainer, MainDropZone } from './styles';
 
-const DesignBuild: React.FC = () => {
-  const [mainComponent, setMainComponent] = useState<Item>();
+const DesignBuilder: React.FC = () => {
+  const [type, setType] = useState<ItemTypes>();
+  const mainComponent = useResolveComponent(type);
 
   const handleDrop = useCallback((item: Item) => {
-    setMainComponent(item);
-  }, []);
-
-  const renderMainComponent = useCallback(() => {
-    return <div />;
+    setType(item.type);
   }, []);
 
   return (
     <Container>
       <Mockup />
       <DropZoneContainer>
-        {mainComponent ? (
-          renderMainComponent()
-        ) : (
+        {mainComponent || (
           <MainDropZone
             onDrop={handleDrop}
-            accept={[
-              ItemTypes.HORIZONTAL_CONTAINER,
-              ItemTypes.VERTICAL_CONTAINER,
-            ]}
+            accept={[ItemTypes.LINEAR_CONTAINER, ItemTypes.LAYER_CONTAINER]}
           />
         )}
       </DropZoneContainer>
@@ -37,4 +30,4 @@ const DesignBuild: React.FC = () => {
   );
 };
 
-export default DesignBuild;
+export default DesignBuilder;
