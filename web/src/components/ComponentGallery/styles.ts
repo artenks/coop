@@ -7,6 +7,9 @@ export const Container = styled(Scrollbar)`
   flex-direction: column;
   flex: 1;
 
+  max-width: 300px;
+  height: 571px;
+
   strong {
     font-size: 12px;
     font-weight: 500;

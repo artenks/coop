@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  align-self: center;
-  background: #fff;
+  background: #eee;
   border-radius: 44px;
 `;
 

@@ -10,7 +10,11 @@ export function useResolveComponent(type?: ItemTypes): ReactNode {
   useEffect(() => {
     switch (type) {
       case ItemTypes.LINEAR_CONTAINER:
-        setNode(<LinearContainer childCount={3} />);
+        setNode(<LinearContainer />);
+        break;
+      case ItemTypes.TEXT:
+        setNode(<span>Text</span>);
+        break;
       default:
         break;
     }
